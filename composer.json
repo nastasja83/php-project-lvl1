@@ -1,0 +1,13 @@
+{
+    "name": "hexlet/code",
+    "bin": ["bin/brain-games"],
+    "description": "Brain games",
+    "authors": [
+        {
+            "name": "Anastasiya Ostertag",
+            "email": "nastasja83@mail.ru"
+        }
+    ],
+    "license": "MIT",
+    "require": {}
+}
