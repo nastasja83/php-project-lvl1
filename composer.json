@@ -1,5 +1,5 @@
 {
-    "name": "hexlet/code",
+    "name": "ostertag/php-project-lvl1",
     "bin": [
         "bin/brain-games",
         "bin/brain-even"
