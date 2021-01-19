@@ -5,10 +5,17 @@ namespace Brain\Games\Even;
 use function cli\line;
 use function cli\prompt;
 
-function isEven()
+function isEven($int)
 {
-    $answerIfEven = 'yes';
-    $answerIfOdd = 'no';
+    if ($int % 2 === 0) {
+        return 'yes';
+    } else {
+        return 'no';
+    }
+}
+
+function evenOrOdd()
+{
     $minInt = 1;
     $maxInt = 20;
     $integers = range($minInt, $maxInt);
@@ -18,27 +25,18 @@ function isEven()
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    line("Answer '{$answerIfEven}' if the number is even, otherwise answer '{$answerIfOdd}'.");
+    line("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
     for ($attempt = 1; $attempt <= $countOfAttempts; $attempt++) {
         $intForQuestion = array_pop($integers);
         line("Question: {$intForQuestion}");
-        $currAnswer = strtolower(prompt('Your answer'));
+        $answer = strtolower(prompt('Your answer'));
+        $currectAnswer = isEven($intForQuestion);
 
-        if ($intForQuestion % 2 === 0 && $currAnswer === $answerIfEven) {
+        if ($answer === $currectAnswer) {
             line("Correct!");
-        } elseif ($intForQuestion % 2 !== 0 && $currAnswer === $answerIfOdd) {
-            line("Correct!");
-        } elseif ($intForQuestion % 2 !== 0 && $currAnswer === $answerIfEven) {
-            line("'{$answerIfEven}' is wrong answer ;(. Correct answer was '{$answerIfOdd}'.");
-            line("Let's try again, %s!", $name);
-            break;
-        } elseif ($intForQuestion % 2 === 0 && $currAnswer === $answerIfOdd) {
-            line("'{$answerIfOdd}' is wrong answer ;(. Correct answer was '{$answerIfEven}'.");
-            line("Let's try again, %s!", $name);
-            break;
         } else {
-            line("Answer '{$answerIfEven}' or '{$answerIfOdd}'.");
+            line("'{$answer}' is wrong answer ;(. Correct answer was '{$currectAnswer}'.");
             line("Let's try again, %s!", $name);
             break;
         }
