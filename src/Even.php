@@ -22,9 +22,7 @@ function getIntegers($minInt, $maxInt)
 
 function evenOrOdd()
 {
-    $minInt = 1;
-    $maxInt = 20;
-    $integers = getIntegers($minInt, $maxInt);
+    $integers = getIntegers(1, 20);
     $countOfAttempts = 3;
 
     line('Welcome to the Brain Game!');
