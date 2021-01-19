@@ -14,12 +14,17 @@ function isEven($int)
     }
 }
 
+function getIntegers($minInt, $maxInt)
+{
+    $integers = range($minInt, $maxInt);
+    return shuffle($integers);
+}
+
 function evenOrOdd()
 {
     $minInt = 1;
     $maxInt = 20;
-    $integers = range($minInt, $maxInt);
-    shuffle($integers);
+    $integers = getIntegers($minInt, $maxInt);
     $countOfAttempts = 3;
 
     line('Welcome to the Brain Game!');
@@ -27,7 +32,7 @@ function evenOrOdd()
     line("Hello, %s!", $name);
     line("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-    for ($attempt = 1; $attempt <= $countOfAttempts; $attempt++) {
+    for ($attempt = 1; $attempt <= $countOfAttempts; $attempt += 1) {
         $intForQuestion = array_pop($integers);
         line("Question: {$intForQuestion}");
         $answer = strtolower(prompt('Your answer'));
