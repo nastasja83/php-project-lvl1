@@ -14,7 +14,9 @@ function isEven($int)
 
 function evenOrOdd()
 {
-    $integers = range(1, 20);
+    $minInt = 1;
+    $maxInt = 20;
+    $integers = range($minInt, $maxInt);
     shuffle($integers);
 
     line('Welcome to the Brain Game!');
