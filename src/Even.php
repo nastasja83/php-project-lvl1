@@ -9,18 +9,12 @@ const COUNT_OF_ATTEMPTS = 3;
 
 function isEven($int)
 {
-    if ($int % 2 === 0) {
-        return 'yes';
-    } else {
-        return 'no';
-    }
+    return $int % 2 === 0 ? 'yes' : 'no';
 }
 
 function evenOrOdd()
 {
-    $minInt = 1;
-    $maxInt = 20;
-    $integers = range($minInt, $maxInt);
+    $integers = range(1, 20);
     shuffle($integers);
 
     line('Welcome to the Brain Game!');
@@ -39,10 +33,8 @@ function evenOrOdd()
         } else {
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$currectAnswer}'.");
             line("Let's try again, %s!", $name);
-            break;
-        }
-        if ($attempt === COUNT_OF_ATTEMPTS) {
-            line("Congratulation, %s!", $name);
+            return;
         }
     }
+    line("Congratulation, %s!", $name);
 }
