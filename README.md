@@ -12,7 +12,11 @@ $ make install
 ```
 [![asciicast](https://asciinema.org/a/386641.svg)](https://asciinema.org/a/386641)
 ### Games
+
 brain-even
+
 [![asciicast](https://asciinema.org/a/386643.svg)](https://asciinema.org/a/386643)
+
 brain-calc
+
 [![asciicast](https://asciinema.org/a/386640.svg)](https://asciinema.org/a/386640)
