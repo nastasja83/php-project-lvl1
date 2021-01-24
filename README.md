@@ -10,7 +10,7 @@ $ git clone https://github.com/nastasja83/php-project-lvl1.git
 
 $ make install
 ```
-[![asciicast](https://asciinema.org/a/386641.svg)](https://asciinema.org/a/386641)
+[![asciicast](https://asciinema.org/a/386641.svg)](https://asciinema.org/a/386641){:height="36px" width="36px"}
 ### Games
 
 brain-even
