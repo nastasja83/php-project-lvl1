@@ -7,7 +7,7 @@ use function cli\prompt;
 
 const COUNT_OF_ATTEMPTS = 3;
 
-function flow(callable $gameData, string $rules)
+function flow(callable $gameData, string $rules): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');

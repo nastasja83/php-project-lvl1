@@ -8,12 +8,12 @@ const MIN_INTEGER = 1;
 const MAX_INTEGER = 20;
 const RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-function getIntegers()
+function getIntegers(): int
 {
     return random_int(MIN_INTEGER, MAX_INTEGER);
 }
 
-function isPrime($int)
+function isPrime(int $int): bool
 {
     if ($int === 1) {
         return 'no';
@@ -26,7 +26,7 @@ function isPrime($int)
     return 'yes';
 }
 
-function run()
+function run(): void
 {
     $gameData = function (): array {
         $question = getIntegers();

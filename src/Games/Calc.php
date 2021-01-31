@@ -9,17 +9,17 @@ const MAX_INTEGER = 30;
 const OPERATORS = ['+', '-', '*'];
 const RULES = "What is the result of the expression?";
 
-function getIntegers()
+function getIntegers(): int
 {
     return random_int(MIN_INTEGER, MAX_INTEGER);
 }
 
-function getOperator()
+function getOperator(): string
 {
     return array_rand(array_flip(OPERATORS));
 }
 
-function getVariant($int1, $int2, $operator)
+function getVariant(int $int1, int $int2,string $operator): array
 {
     switch ($operator) {
         case '+':
@@ -38,7 +38,7 @@ function getVariant($int1, $int2, $operator)
     return [$question, (string) $correctAnswer];
 }
 
-function run()
+function run(): void
 {
     $gameData = function (): array {
         $int1 = getIntegers();

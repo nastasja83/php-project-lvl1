@@ -8,12 +8,12 @@ const MIN_INTEGER = 2;
 const MAX_INTEGER = 50;
 const RULES = "Find the greatest common divisor of given numbers.";
 
-function getIntegers()
+function getIntegers(): int
 {
     return random_int(MIN_INTEGER, MAX_INTEGER);
 }
 
-function getCorrectAnswer($int1, $int2)
+function getCorrectAnswer(int $int1, int $int2): int
 {
     while ($int1 !== $int2) {
         if ($int1 > $int2) {
@@ -25,7 +25,7 @@ function getCorrectAnswer($int1, $int2)
     return $int1;
 }
 
-function run()
+function run(): void
 {
     $gameData = function (): array {
         $int1 = getIntegers();

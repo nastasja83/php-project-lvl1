@@ -12,7 +12,7 @@ const MIN_INDEX = 0;
 const MAX_INDEX = 9;
 const RULES = "What number is missing in the progression?";
 
-function getProgression($start, $step)
+function getProgression(int $start, int $step): array
 {
     for ($i = 0, $progression = []; $i <= MAX_INDEX; $i++) {
         $progression[] = $start;
@@ -21,7 +21,7 @@ function getProgression($start, $step)
     return $progression;
 }
 
-function run()
+function run(): void
 {
     $gameData = function (): array {
         $start = random_int(MIN_START, MAX_START);
