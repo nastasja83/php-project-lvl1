@@ -1,11 +1,12 @@
 <?php
 
-namespace Brain\Games\Games\Prime;
+namespace BrainGames\Games\Prime;
 
 use function Brain\Games\Engine\flow;
 
 const MIN_INTEGER = 1;
 const MAX_INTEGER = 20;
+const RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
 function getIntegers()
 {
@@ -25,15 +26,13 @@ function isPrime($int)
     return 'yes';
 }
 
-function runPrime()
+function run()
 {
-    $rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-
     $gameData = function (): array {
         $question = getIntegers();
         $correctAnswer = isPrime($question);
 
         return [$question, (string) $correctAnswer];
     };
-    flow($gameData, $rules);
+    flow($gameData, RULES);
 }

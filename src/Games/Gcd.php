@@ -1,11 +1,12 @@
 <?php
 
-namespace Brain\Games\Games\Gcd;
+namespace BrainGames\Games\Gcd;
 
 use function Brain\Games\Engine\flow;
 
 const MIN_INTEGER = 2;
 const MAX_INTEGER = 50;
+const RULES = "Find the greatest common divisor of given numbers.";
 
 function getIntegers()
 {
@@ -24,10 +25,8 @@ function getCorrectAnswer($int1, $int2)
     return $int1;
 }
 
-function runGcd()
+function run()
 {
-    $rules = "Find the greatest common divisor of given numbers.";
-
     $gameData = function (): array {
         $int1 = getIntegers();
         $int2 = getIntegers();
@@ -36,5 +35,5 @@ function runGcd()
 
         return [$question, (string) $correctAnswer];
     };
-    flow($gameData, $rules);
+    flow($gameData, RULES);
 }
