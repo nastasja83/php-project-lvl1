@@ -1,11 +1,12 @@
 <?php
 
-namespace Brain\Games\Games\Even;
+namespace BrainGames\Games\Even;
 
 use function Brain\Games\Engine\flow;
 
 const MIN_INTEGER = 1;
 const MAX_INTEGER = 100;
+const RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
 function getQuestion()
 {
@@ -14,17 +15,20 @@ function getQuestion()
 
 function isEven($int)
 {
-    return $int % 2 === 0 ? 'yes' : 'no';
+    return $int % 2 === 0;
 }
 
-function runEven()
+function getCorrectAnswer($int)
 {
-    $rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    return isEven($int) ? 'yes' : 'no';
+}
 
+function run()
+{
     $gameData = function (): array {
         $question = getQuestion();
-        $correctAnswer = isEven($question);
+        $correctAnswer = getCorrectAnswer($question);
         return [$question, (string) $correctAnswer];
     };
-    flow($gameData, $rules);
+    flow($gameData, RULES);
 }
