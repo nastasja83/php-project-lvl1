@@ -37,7 +37,7 @@ function run(): void
         $question = getIntegers();
         $correctAnswer = getCorrectAnswer($question);
 
-        return [$question, (string) $correctAnswer];
+        return [$question, $correctAnswer];
     };
     flow($gameData, RULES);
 }
