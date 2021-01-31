@@ -14,7 +14,9 @@ const RULES = "What number is missing in the progression?";
 
 function getProgression(int $start, int $step): array
 {
-    for ($i = 0, $progression = []; $i <= MAX_INDEX; $i++) {
+    $progression = [];
+
+    for ($i = 0; $i <= MAX_INDEX; $i++) {
         $progression[] = $start;
         $start += $step;
     }
