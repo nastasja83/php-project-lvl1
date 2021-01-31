@@ -5,7 +5,7 @@ namespace BrainGames\Games\Progression;
 use function Brain\Games\Engine\flow;
 
 const MIN_START = 2;
-const MAX_START = 20;
+const MAX_START = 50;
 const MIN_STEP = 2;
 const MAX_STEP = 20;
 const MIN_INDEX = 0;
