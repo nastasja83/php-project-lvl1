@@ -19,7 +19,7 @@ function getOperator(): string
     return array_rand(array_flip(OPERATORS));
 }
 
-function getVariant(int $int1, int $int2,string $operator): array
+function getVariant(int $int1, int $int2, string $operator): array
 {
     switch ($operator) {
         case '+':
