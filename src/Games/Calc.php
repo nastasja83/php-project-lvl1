@@ -16,7 +16,8 @@ function getIntegers(): int
 
 function getOperator(): string
 {
-    return array_rand(array_flip(OPERATORS));
+    $key = array_rand(OPERATORS);
+    return OPERATORS[$key];
 }
 
 function getVariant(int $int1, int $int2, string $operator): array
