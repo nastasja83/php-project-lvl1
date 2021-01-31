@@ -27,5 +27,5 @@ function flow(callable $gameData, string $rules)
             return;
         }
     }
-    line("Congratulation, %s!", $name);
+    line("Congratulations, %s!", $name);
 }
