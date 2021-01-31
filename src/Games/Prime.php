@@ -16,21 +16,26 @@ function getIntegers(): int
 function isPrime(int $int): bool
 {
     if ($int === 1) {
-        return 'no';
+        return true;
     }
     for ($i = 2; $i * $i <= $int; $i++) {
         if ($int % $i === 0) {
-            return 'no';
+            return false;
         }
     }
-    return 'yes';
+    return true;
+}
+
+function getCorrectAnswer(int $int): string
+{
+    return isPrime($int) ? 'yes' : 'no';
 }
 
 function run(): void
 {
     $gameData = function (): array {
         $question = getIntegers();
-        $correctAnswer = isPrime($question);
+        $correctAnswer = getCorrectAnswer($question);
 
         return [$question, (string) $correctAnswer];
     };
