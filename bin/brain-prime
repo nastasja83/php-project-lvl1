@@ -11,6 +11,6 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use Brain\Games\Games\Prime;
+use BrainGames\Games\Prime;
  
-Prime\runPrime();
+Prime\run();
