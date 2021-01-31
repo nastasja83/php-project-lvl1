@@ -1,43 +1,38 @@
 <?php
 
-namespace Brain\Games\Games\Progression;
+namespace BrainGames\Games\Progression;
 
 use function Brain\Games\Engine\flow;
 
-const MIN_INTEGER = 1;
-const MAX_INTEGER = 10;
-const COUNT_INTEGERS_IN_PROGRESSION = 10;
+const MIN_START = 2;
+const MAX_START = 20;
+const MIN_STEP = 2;
+const MAX_STEP = 20;
+const MIN_INDEX = 0;
+const MAX_INDEX = 10;
+const RULES = "What number is missing in the progression?";
 
-function getIntegers()
+function getProgression($start, $step)
 {
-    return random_int(MIN_INTEGER, MAX_INTEGER);
-}
-
-function getProgression()
-{
-    $currInt = getIntegers();
-    $step = getIntegers();
-    $progression = [];
-
-    for ($i = 0; $i <= COUNT_INTEGERS_IN_PROGRESSION; $i++) {
-        $progression[] = $currInt;
-        $currInt += $step;
+    for ($i = 0, $progression = []; $i < MAX_INDEX; $i++) {
+        $progression[] = $start;
+        $start += $step;
     }
     return $progression;
 }
 
-function runProgression()
+function run()
 {
-    $rules = "What number is missing in the progression?";
-
     $gameData = function (): array {
-        $index = getIntegers();
-        $progression = getProgression();
+        $start = random_int(MIN_START, MAX_START);
+        $step = random_int(MIN_STEP, MAX_STEP);
+        $index = random_int(MIN_INDEX, MAX_INDEX);
+        $progression = getProgression($start, $step);
         $correctAnswer = $progression[$index];
         $progression[$index] = '..';
         $question = implode(' ', $progression);
 
         return [$question, (string) $correctAnswer];
     };
-    flow($gameData, $rules);
+    flow($gameData, RULES);
 }
