@@ -22,6 +22,9 @@ function getOperator(): string
 
 function getVariant(int $int1, int $int2, string $operator): array
 {
+    $question = "";
+    $correctAnswer = 0;
+
     switch ($operator) {
         case '+':
             $question = "{$int1} + {$int2}";
