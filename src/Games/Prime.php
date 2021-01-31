@@ -16,7 +16,7 @@ function getIntegers(): int
 function isPrime(int $int): bool
 {
     if ($int === 1) {
-        return true;
+        return false;
     }
     for ($i = 2; $i * $i <= $int; $i++) {
         if ($int % $i === 0) {
