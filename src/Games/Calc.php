@@ -2,14 +2,14 @@
 
 namespace BrainGames\Games\Calc;
 
-use function Brain\Games\Engine\flow;
+use function Brain\Games\Engine\play;
 
 const MIN_INTEGER = 2;
 const MAX_INTEGER = 30;
 const OPERATORS = ['+', '-', '*'];
-const RULES = "What is the result of the expression?";
+const DESCRIPTION = "What is the result of the expression?";
 
-function getIntegers(): int
+function getInteger(): int
 {
     return random_int(MIN_INTEGER, MAX_INTEGER);
 }
@@ -20,7 +20,7 @@ function getOperator(): string
     return OPERATORS[$key];
 }
 
-function getVariant(int $int1, int $int2, string $operator): array
+function getExpressionValue(int $int1, int $int2, string $operator): array
 {
     $question = "";
     $correctAnswer = 0;
@@ -45,10 +45,10 @@ function getVariant(int $int1, int $int2, string $operator): array
 function run(): void
 {
     $gameData = function (): array {
-        $int1 = getIntegers();
-        $int2 = getIntegers();
+        $int1 = getInteger();
+        $int2 = getInteger();
         $operator = getOperator();
-        return getVariant($int1, $int2, $operator);
+        return getExpressionValue($int1, $int2, $operator);
     };
-    flow($gameData, RULES);
+    play($gameData, DESCRIPTION);
 }
