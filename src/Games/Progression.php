@@ -2,23 +2,23 @@
 
 namespace BrainGames\Games\Progression;
 
-use function Brain\Games\Engine\flow;
+use function Brain\Games\Engine\play;
 
 const MIN_START = 2;
 const MAX_START = 50;
 const MIN_STEP = 2;
 const MAX_STEP = 20;
 const MIN_INDEX = 0;
-const MAX_INDEX = 9;
-const RULES = "What number is missing in the progression?";
+const MAX_INDEX = 10;
+const DESCRIPTION = "What number is missing in the progression?";
 
 function getProgression(int $start, int $step): array
 {
     $progression = [];
 
-    for ($i = 0; $i <= MAX_INDEX; $i++) {
-        $progression[] = $start;
-        $start += $step;
+    for ($i = 1; $i <= MAX_INDEX; $i++) {
+        $item = $start + ($i - 1) * $step;
+        $progression[] = $item;
     }
     return $progression;
 }
@@ -36,5 +36,5 @@ function run(): void
 
         return [$question, (string) $correctAnswer];
     };
-    flow($gameData, RULES);
+    play($gameData, DESCRIPTION);
 }
