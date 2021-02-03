@@ -2,13 +2,13 @@
 
 namespace BrainGames\Games\Gcd;
 
-use function Brain\Games\Engine\flow;
+use function Brain\Games\Engine\play;
 
 const MIN_INTEGER = 2;
 const MAX_INTEGER = 50;
-const RULES = "Find the greatest common divisor of given numbers.";
+const DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
-function getIntegers(): int
+function getInteger(): int
 {
     return random_int(MIN_INTEGER, MAX_INTEGER);
 }
@@ -28,12 +28,12 @@ function getCorrectAnswer(int $int1, int $int2): int
 function run(): void
 {
     $gameData = function (): array {
-        $int1 = getIntegers();
-        $int2 = getIntegers();
+        $int1 = getInteger();
+        $int2 = getInteger();
         $question = "{$int1} {$int2}";
         $correctAnswer = getCorrectAnswer($int1, $int2);
 
         return [$question, (string) $correctAnswer];
     };
-    flow($gameData, RULES);
+    play($gameData, DESCRIPTION);
 }
