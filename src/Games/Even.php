@@ -2,11 +2,11 @@
 
 namespace BrainGames\Games\Even;
 
-use function Brain\Games\Engine\flow;
+use function Brain\Games\Engine\play;
 
 const MIN_INTEGER = 1;
 const MAX_INTEGER = 100;
-const RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+const DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
 function getQuestion(): int
 {
@@ -30,5 +30,5 @@ function run(): void
         $correctAnswer = getCorrectAnswer($question);
         return [$question, $correctAnswer];
     };
-    flow($gameData, RULES);
+    play($gameData, DESCRIPTION);
 }
