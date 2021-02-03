@@ -5,16 +5,16 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-const COUNT_OF_ATTEMPTS = 3;
+const ATTEMPTS_COUNT = 3;
 
-function flow(callable $gameData, string $rules): void
+function play(callable $gameData, string $description): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    line("$rules");
+    line("$description");
 
-    for ($attempt = 1; $attempt <= COUNT_OF_ATTEMPTS; $attempt += 1) {
+    for ($attempt = 0; $attempt < ATTEMPTS_COUNT; $attempt += 1) {
         [$question, $correctAnswer] = $gameData();
         line("Question: {$question}");
         $answer = strtolower(prompt('Your answer'));
