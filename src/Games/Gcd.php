@@ -13,14 +13,14 @@ function getInteger(): int
     return random_int(MIN_INTEGER, MAX_INTEGER);
 }
 
-function getCorrectAnswer(int $int1, int $int2): int
+function getGcd(int $int1, int $int2): int
 {
-    while ($int1 !== $int2) {
-        if ($int1 > $int2) {
-            $int1 -= $int2;
-        } else {
-            $int2 -= $int1;
-        }
+    $temp = 0;
+
+    while ($int2 != 0) {
+        $temp = $int2;
+        $int2 = $int1 % $int2;
+        $int1 = $temp;
     }
     return $int1;
 }
@@ -31,7 +31,7 @@ function run(): void
         $int1 = getInteger();
         $int2 = getInteger();
         $question = "{$int1} {$int2}";
-        $correctAnswer = getCorrectAnswer($int1, $int2);
+        $correctAnswer = getGcd($int1, $int2);
 
         return [$question, (string) $correctAnswer];
     };
