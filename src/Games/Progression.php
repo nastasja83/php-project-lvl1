@@ -9,15 +9,15 @@ const MAX_START = 50;
 const MIN_STEP = 2;
 const MAX_STEP = 20;
 const MIN_INDEX = 0;
-const MAX_INDEX = 10;
+const MAX_INDEX = 9;
 const DESCRIPTION = "What number is missing in the progression?";
 
 function getProgression(int $start, int $step): array
 {
     $progression = [];
 
-    for ($i = 1; $i <= MAX_INDEX; $i++) {
-        $item = $start + ($i - 1) * $step;
+    for ($i = MIN_INDEX; $i <= MAX_INDEX; $i++) {
+        $item = $start + $i * $step;
         $progression[] = $item;
     }
     return $progression;
